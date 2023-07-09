@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome cdn css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="logo.png">
+
+  <!--  <script src="/socket.io/socket.io.js" defer></script> -->
+
+    <title>Document</title>
+</head> 
+<body>
+    <br>
+    <img src = 'head.svg' style="height:auto; width:auto; max-width:100px; max-height:100px;">
+    
+    <!-- This is the section for webGL-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        70,
+        window.innerWidth / window.innerHeight
+      );
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+      renderer.setSize(300, 200);
+      renderer.setClearColor(0x000000, 0);
+      document.body.appendChild(renderer.domElement);
+
+      const letters = [];
+      const phrase = "DINE DIVINE";
+
+      const fontLoader = new THREE.FontLoader();
+      fontLoader.load(
+        "https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/fonts/droid/droid_serif_regular.typeface.json",
+        function (font) {
+          // create a letter mesh for each character in the phrase
+          for (let i = 0; i < phrase.length; i++) {
+            const geometry = new THREE.TextGeometry(phrase[i], {
+              font: font,
+              size: 0.9,
+              height: 0.3,
+        
+            });
+            const material = new THREE.MeshBasicMaterial({
+              color: new THREE.Color(
+                Math.random(),
+                Math.random(),
+                Math.random()
+              ),
+            });
+            const letter = new THREE.Mesh(geometry, material);
+            letter.position.x = -2 + i * 1;
+            letter.position.y = 0;
+            scene.add(letter);
+            letters.push(letter);
+          }
+        }
+      );
+
+      camera.position.z = 8;
+
+      let time = 0;
+      let speed = 0.03;
+      let amplitude = 0.5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        time += speed;
+
+        for (let i = 0; i < letters.length; i++) {
+          // jiggle the position of each letter
+          letters[i].position.y = amplitude * Math.cos(time + i);
+        }
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+
+    <!--End section for webGL-->
+
+    <header><div class = 'top_view'>
+        <div class = 'title'>
+            <h1 class = 'rest-name'> &nbsp;&nbsp;&nbsp;&nbsp;Dine Divine</h1>
+        </div>
+        <div class = 'nav'>
+            <nav id="nav-bar">
+                <ul >
+                    <li> <a class = 'home' href="#">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class = 'menu' href="#">Menu</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class = 'specials' href="#">Specials</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class = 'events' href="#">Events</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class = 'gallery' href="#">Gallery</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class = 'ddown'>
+                        <li> <a class = 'dropdown' href="#">Dropdown </a> <i class="fa-light fa-caret-down"></i>
+                            <div class = 'drop-down-content'>
+                                <ul>
+                                    <li><a class = 'drop1' href="#1">Drop1</a></li>
+                                    <li><a class = 'drop2' href="#2">Drop2</a></li>
+                                    <li><a class = 'drop3' href="#3">Drop3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class = 'about' href="#">About</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class = 'contact' href="#">Contact</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li><button class = 'table-book'>Reservation</button></li>
+                    </ul>
+            </nav>
+        </div>
+        
+    </div>
+    
+    <div class = 'welcome'>
+        <h2 class = 'first'>Welcome to</h1>  
+            <h1 class = 'second'>DineDesign</h1>  
+            <h3>Delivering great food for more than 50 years!</h3> 
+        </div>
+        
+        <div class="video-player">
+            <i class="fa-solid fa-circle-play fa-2xl"></i>
+        </div>
+        
+        
+        <ul>
+            <li><button class = 'buttonx' >Button X</button></li>
+            <li><button class = 'buttony'>Button Y</button></li>
+        </ul>
+    </header>
+    
+    <!-- ======= About Section ======= -->
+    <section class="about-sec">
+        <div class="about-div">
+            <h1 class="sec-h1">
+                Lorem ipsum is placeholder text commonly used in the graphic,<br> print, and publishing industries for previewing layouts and visual mockups.
+            </h1>
+            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad<br>
+                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in<br>
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </i>
+            <br>
+            <i class="fa-thin fa-circle-check">&nbsp;&nbsp;Ullamco laboris nisi ut aliquip ex ea commodo consequat.</i><br>
+            <i class="fa-thin fa-circle-check">&nbsp;&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit.</i><br>
+            <i class="fa-thin fa-circle-check">&nbsp;&nbsp;Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</i><br>
+            
+            <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate<br>
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa<br> 
+                qui officia deserunt mollit anim id est laborum
+            </p>
+            
+            <img src = 'img/aboutimg.jpg'>
+        </div>
+    </section>
+    
+    <section class="why-sec">
+        <h4 class="why">WHY US</h4>
+        <h1 class="'choose">Why Choose Our Restaurant</h1>
+        <div class = 'all-boxes'>
+            <a href="#">
+                <div class="box1">
+                    <span>01</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+                </div>
+            </a>
+            
+            <a href="#">
+                <div class="box2">
+                    <span>02</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+                </div>
+            </a>
+            
+            <a href="#">
+                <div class="box3">
+                    <span>03</span>
+                    <h4>Lorem Ipsum</h4>
+                    <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="menu-sec">
+        <div class="menu-div-head">
+            <h4 class="why">Menu</h4>
+            <h1 class="'choose">Check Our Tasty Menu</h1>
+        </div>
+        <div class="menu-div">
+            <ul id="menu-flters">
+                <a href="#"><li class="all">All</li></a>
+                <a href="#"><li class="starters">Starters</li></a>
+                <a href="#"><li class="salads">Salads</li></a>
+                <a href="#"><li class="specialty">Specialty</li></a>
+            </ul>
+        </div>
+        <div class="food-items-parent">
+            <div class = "food-items-left">
+                <img src="img/menu/lobster-roll.jpg">
+                <img src="img/menu/lobster-roll.jpg">
+                <img src="img/menu/lobster-roll.jpg">
+                <img src="img/menu/lobster-roll.jpg">
+            </div>
+            <div class="text-left">
+                <br>
+                <b>Food 1 -------------------------- $5.95</b>
+                <i>Lorem, deren, trataro, filede, nerada</i><br><br><br>
+                <b>Food 2 -------------------------- $5.95</b>
+                <i>Lorem, deren, trataro, filede, nerada</i><br><br>
+                <b>Food 3 -------------------------- $5.95</b>
+                <i>Lorem, deren, trataro, filede, nerada</i><br><br><br>
+                <b>Food 4 -------------------------- $5.95</b>
+                <i>Lorem, deren, trataro, filede, nerada</i>
+            </div>
+            <div class = "food-items-right">
+                <img src="img/menu/lobster-roll.jpg">
+                <img src="img/menu/lobster-roll.jpg">
+                <img src="img/menu/lobster-roll.jpg">
+                <img src="img/menu/lobster-roll.jpg">
+            </div>
+            <div class="text-right">
+                <br>
+                <b>Food 1 -------------------------- $5.95</b><br>
+                <i>Lorem, deren, trataro, filede, nerada</i><br><br><br>
+                <b>Food 2 -------------------------- $5.95</b><br>
+                <i>Lorem, deren, trataro, filede, nerada</i><br><br><br><br>
+                <b>Food 3 -------------------------- $5.95</b><br>
+                <i>Lorem, deren, trataro, filede, nerada</i><br><br><br><br>
+                <b>Food 4 -------------------------- $5.95</b><br>
+                <i>Lorem, deren, trataro, filede, nerada</i>
+            </div>
+        </div>
+    </section>
+    
+    <section class="specials-sec">
+        <div class="specials-div-head">
+            <h4 class="specials">Specials</h4>
+            <h1 class="'choose">Check Our Specials</h1>
+            <div class="special-list-div">
+                <ul id="special-ul">
+                    <a href="#"><li>Special 1</li></a>        
+                    <li id="'sp2">Special 2</li>
+                    <li id="'sp3">Special 3</li>
+                    <li id="'sp4">Special 4</li>
+                </ul>
+            </div>
+        </section>
+              <!-- This is Login Section -->  
+        <section class="login-sec">
+            <div class="login-div-head">
+                <h4 class="login">Login</h4>
+                
+                
+                <div id="frame">
+                    
+                    <div class="title">Welcome to our social!</div>
+                    
+                    <div id="main">
+                        
+                        <div id="loginScreen">
+                            <div class="form">
+                                Username: <input type="text" id="loginUsername">
+                                Password: <input type="password" id="loginPassword">
+                                <span></span>
+                                <button id="loginBtn">Sign In</button>
+                            </div>
+                            <hr>
+                            <div class="do-you">
+                                Don't have an account?
+                                Click <a href="#" id="registerLink">here</a> to register.
+                            </div>
+                        </div>
+                        
+                        <div id="registerScreen" class="hidden">
+                            <div class="form">
+                                Username: <input type="text" id="registerUsername">
+                                Password: <input type="password" id="registerPassword">
+                                Name: <input type="text" id="registerName">
+                                Email: <input type="email" id="registerEmail">
+                                <span></span>
+                                <button id="registerBtn">Register</button>
+                            </div>
+                            <hr>
+                            <div class="already">
+                                Already have an account?
+                                Click <a href="#" id="loginLink">here</a> to log in.
+                            </div>
+                        </div>
+                        
+                        <div id="homeScreen" class="hidden">
+                            Welcome <span id="name"></span>!
+                            <div>
+                                Click <a href="#" id="logoutLink">here</a> to log out.
+                            </div>
+                            <hr>
+                            Username: <span id="username"></span>
+                            <div class="form">
+                                Name: <input type="text" id="updateName">
+                                Email: <input type="email" id="updateEmail">
+                                <span></span>
+                                <button id="updateBtn">Update My Information</button>
+                                <span></span>
+                                <button id="deleteBtn" class="critical">Delete My Profile</button>
+                            </div>
+                            <hr>
+                            Here's the current list of users on our social:
+                            <div id="userlist"></div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="error" class="critical"></div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!---->
+        <!---->
+        <!---->
+
+        <!-- This is Reservation Section -->
+
+        <section class = "banner">
+            <h2>BOOK YOUR TABLE NOW</h2>
+            <div class = "card-container">
+            
+
+                <div class = "card-content">
+                    <h3>Reservation</h3>
+                    <form>
+                        <div class = "form-row">
+                            <select name = "days" id = 'days_select'>
+                                <option value = "day-select">Select Day</option>
+                                <option value = "sunday">Sunday</option>
+                                <option value = "monday">Monday</option>
+                                <option value = "tuesday">Tuesday</option>
+                                <option value = "wednesday">Wednesday</option>
+                                <option value = "thursday">Thursday</option>
+                                <option value = "friday">Friday</option>
+                                <option value = "saturday">Saturday</option>
+                            </select>
+
+                            <select name = "hours" id="hours_select">
+                                <option value = "hour-select">Select Hour</option>
+                                <option value = "10">10: 00</option>
+                                <option value = "10">12: 00</option>
+                                <option value = "10">14: 00</option>
+                                <option value = "10">16: 00</option>
+                                <option value = "10">18: 00</option>
+                                <option value = "10">20: 00</option>
+                                <option value = "10">22: 00</option>
+                            </select>
+                        </div>
+
+                        <div class = "form-row">
+                            <input type = "text" id="name_select" placeholder="Full Name">
+                            <input type = "text"  id="phone_select" placeholder="Phone Number">
+                        </div>
+
+                        <div class = "form-row">
+                          <!--  <input type = "number" placeholder="How Many Persons?" id="people-count" min = "1"> -->
+                            <input type = "submit" id="book-table-btn" value = "BOOK TABLE">
+                            <input type = "submit" id="del-table-btn" value = "DELETE TABLE">
+                            <input type = "submit" id="change-table-btn" value = "CHANGE TABLE">
+                            <br>
+                            <span id = 'success-text'></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        <!-- End of Reservation Section -->
+        
+    </section>
+        
+    <!-- Start of Reviews Section -->
+
+
+    <section class="review-sec">
+        <div id="div-reviews">
+        <h4 class="ourreview">Our Reviews</h4>
+        <div id="reviews"></div>
+
+                <!-- Start of Image Upload-->
+
+                <form>
+                    <input type="file" id="image" multiple>
+                    <button type="submit" id="img-upload">Upload Images</button>
+                </form>
+      
+
+                    <!-- End of Image Upload-->
+
+    </div>
+
+    <!-- Adding Video to the website-->
+    <video id="localVideo" width="320" height="240" autoplay muted></video>
+    <video id="remoteVideo" width="320" height="240" autoplay></video>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const localVideo = document.getElementById('localVideo');
+      const remoteVideo = document.getElementById('remoteVideo');
+
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then((stream) => {
+          localVideo.srcObject = stream;
+
+          const socket = io();
+
+          socket.on('connect', () => {
+            console.log('Connected to server');
+
+            const rtcPeerConnection = new RTCPeerConnection();
+
+            stream.getTracks().forEach((track) => {
+              rtcPeerConnection.addTrack(track, stream);
+            });
+
+            rtcPeerConnection.ontrack = (event) => {
+              remoteVideo.srcObject = event.streams[0];
+            };
+
+            rtcPeerConnection.createOffer()
+              .then((offer) => rtcPeerConnection.setLocalDescription(offer))
+              .then(() => {
+                socket.emit('offer', rtcPeerConnection.localDescription);
+              });
+          });
+
+          socket.on('answer', (description) => {
+            rtcPeerConnection.setRemoteDescription(new RTCSessionDescription(description));
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+
+    <!-- End of the video-->
+
+    </section>
+
+    <!-- End of Reviews Section-->
+
+    
+    <!-- js file-->
+    <script src="script.js"></script>
+    <script>navigator.serviceWorker.register('sw.js');</script>
+   <!-- <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script> -->
+  <!--  <script>
+        const ROOM_ID = "<%= roomId %>"
+      </script> -->
+</body>
+</html>
