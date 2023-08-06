@@ -43,13 +43,13 @@
   * Database: MongoDB
     
 ### 2. Features
-#### User Authentication and Authorization
-#### Making Reservations
-#### Augmented Reality Menu & Food Customization
-#### Food Order
-#### Order Tracking
-#### AI-Bot Customer Service
-#### Real-time Food Lessons
+* #### User Authentication and Authorization
+* #### Making Reservations
+* #### Augmented Reality Menu & Food Customization
+* #### Food Order
+* #### Order Tracking
+* #### AI-Bot Customer Service
+* #### Real-time Food Lessons
 
 
 ### 3. Source files description
