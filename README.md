@@ -2,7 +2,7 @@
 ![DineDesign](./public/img/bg.jpeg)
 
 ## Overview
-```DineDesign``` is an full-stack res
+```DineDesign``` is a multipurpose, versatile, and interactive based full stack restaurant web application that streamlines user authentication and authorization, dining experience, facilitates seamless table reservations, Augmented Reality based food ordering and customizations. Websockets and WebRTC facilitates the real-time customer-AI Bot interaction and food-lessons tutorial streaming
 ## Frontend
 
 ### 1. Getting Started
@@ -53,5 +53,41 @@
 
 
 ### 3. Source files description
-```./server.ts```runs the server for the user authentication and authorization service, making reservation, and real-time food lessons. It lets users to register, login, reset password and delete their account. The password is hashed and a token is generated upon registration. The token refreshed after every login. The user credentials and reservation details are stored in MongoDB. Real-time food lessons are performed using WebRTCs<br>
+```./server.js```runs the server for the user authentication and authorization service, making reservation, and real-time food lessons. It lets users to register, login, reset password and delete their account. The password is hashed and a token is generated upon registration. The token refreshed after every login. The user credentials and reservation details are stored in MongoDB. Real-time food lessons are performed using WebRTCs<br>
 
+### Running the Webapp
+   #### 1. Clone the repo:
+   ```
+      git clone https://github.com/rishikeshydv/DineDesign.git
+   ```
+   #### 2. Set directory to the repo 
+   ```
+      cd DineDesign
+   ```
+   #### 3. Run the Backend Server:
+   ```
+      node index.js
+   ```
+   The server runs on port 4000.
+
+   #### 4. To start the frontend, navigate to the nextjs folder:
+   ```
+      cd nextjs
+   ```
+   #### 4. Install all frontend dependencies:
+   ```
+      npm install
+   ```
+   #### 5. Start the frontend development server:
+   ```
+      npm run dev
+   ```
+   ###### Access the app in your browser by visiting: http://localhost:3000
+
+   ### TypeScript Server (Connected to Flask API)
+   #### 1. While still in the chatbot folder, run the TypeScript server:
+   ```
+      npx ts-node server.ts
+   ```
+   The TypeScript server is connected to the Flask API and runs on port 3006.
+   #### 2. In your browser, visit http://localhost:3000/dashboard/chat to test the chat feature and observe AI responses.
