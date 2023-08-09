@@ -74,11 +74,11 @@
    ```
       cd nextjs
    ```
-   #### 4. Install all frontend dependencies:
+   #### 5. Install all frontend dependencies:
    ```
       npm install
    ```
-   #### 5. Start the frontend development server:
+   #### 6. Start the frontend development server:
    ```
       npm run dev
    ```
