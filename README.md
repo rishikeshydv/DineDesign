@@ -84,10 +84,3 @@
    ```
    ###### Access the app in your browser by visiting: http://localhost:3000
 
-   ### TypeScript Server (Connected to Flask API)
-   #### 1. While still in the chatbot folder, run the TypeScript server:
-   ```
-      npx ts-node server.ts
-   ```
-   The TypeScript server is connected to the Flask API and runs on port 3006.
-   #### 2. In your browser, visit http://localhost:3000/dashboard/chat to test the chat feature and observe AI responses.
