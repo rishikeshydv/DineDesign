@@ -14,21 +14,18 @@ export default function Header() {
         <h3 className="text-3xl font-semibold text-beige">DineDesign</h3>
       </div>
       <div className="flex flex-row gap-5 items-center justify-center">
-        <a href="#" >
+        <a href="/" >
           <span>
             Home
           </span>
         </a>
-        <a href="">
+        <a href="/menu">
           <span>Menu</span>
-        </a>
-        <a href="">
-          <span>Reservations</span>
         </a>
         <a href="/blog">
           <span>Blog</span>
         </a>
-        <a href="">
+        <a href="/contact">
           <span>Contact Us</span>
         </a>
       </div>
