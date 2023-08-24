@@ -1,8 +1,9 @@
-import Image from "next/image";
+import Reserve from '@/components/reserve'
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="w-full h-full flex justify-center items-center">
+      <Reserve/>
     </div>
   );
 }

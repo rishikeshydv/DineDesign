@@ -1,7 +1,7 @@
 import React from "react";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 
-export default function header() {
+export default function Header() {
   return (
     <div className="w-full fixed top-0">
       <div className="justify-end flex flex-row space-x-4 mr-10 mt-4">
@@ -25,7 +25,7 @@ export default function header() {
         <a href="">
           <span>Reservations</span>
         </a>
-        <a href="">
+        <a href="/blog">
           <span>Blog</span>
         </a>
         <a href="">
