@@ -2,6 +2,8 @@ import Reserve from '@/components/reserve'
 import Hometop from '@/components/hometop'
 import Homeleft from '@/components/homeleft'
 import Homeright from '@/components/homeright'
+import { SessionProvider } from "next-auth/react"
+
 export default function Home() {
   return (
     <div className="w-full h-full flex justify-center items-center">
