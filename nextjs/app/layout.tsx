@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import HeaderBottom from '@/components/headerbottom'
 import Footer from '@/components/footer'
-import AuthProvider from '@/context/AuthProvider'
+import AuthProvider from '@/context/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
