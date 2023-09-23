@@ -1,7 +1,7 @@
 'use client'
+import Card from '@/components/userCard'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
-import UserCard from '@/components/userCard'
 
 
 export default function ClientPage() {
@@ -13,7 +13,7 @@ export default function ClientPage() {
     })
   return (
     <section className='flex flex-col gap-6'>
-            <UserCard user = {session?.user} pagetype={"Client"}/>
+            <Card user = {session?.user} pagetype={"Client"}/>
     </section>
   )
 }

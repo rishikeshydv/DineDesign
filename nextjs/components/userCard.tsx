@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type User =
   | {
       username?: string | null | undefined;
@@ -15,7 +13,7 @@ type Props = {
 };
 
 export default function Card({ user, pagetype }: Props) {
-  const greeting = user?.name ? (
+  const greeting = user?.name? (
     <div className="flex flex-col items-center p-6 bg-white rounded-lg font-bold text-5xl text-black">
       Hello {user?.name}!
     </div>

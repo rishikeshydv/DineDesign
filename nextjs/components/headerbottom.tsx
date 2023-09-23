@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div className="w-full fixed top-0">
       <div className="justify-end flex flex-row space-x-4 mr-10 mt-4">
-        <a href="#">Login</a>
+        <a href="/client">Login</a>
         <a href="#">Register</a>
         <FaInstagram className="w-6 h-6 text-pink-500" />
         <FaTwitter className="w-6 h-6 text-blue-400" />
